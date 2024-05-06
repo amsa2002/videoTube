@@ -1,21 +1,75 @@
 import React, { useState } from "react";
 import Navbar from "./Components/Navbar/Navbar";
-import { Routes, Route } from "react-router-dom";
+import { Routes, Route, useLocation } from "react-router-dom";
 import Home from "./Pages/Home/Home";
 import Video from "./Pages/Video/Video";
+import { ToastContainer } from "react-toastify";
+import LogInSignUp from "./Pages/LogInSignUp";
 
 const App = () => {
   const [sidebar, setSidebar] = useState(true);
-  
+  const location = useLocation();
+
+  const showNavbar = () => {
+    return location.pathname !== "/login";
+  };
+
   return (
     <div>
-      <Navbar setSidebar={setSidebar} />
+      <ToastContainer />
+      {showNavbar() && <Navbar setSidebar={setSidebar} />}
       <Routes>
-        <Route path="/" element={<Home  sidebar={sidebar} />} />
+        <Route path="/" element={<Home sidebar={sidebar} />} />
         <Route path="/video/:categoryId/:videoId" element={<Video />} />
+        <Route path="/login" element={<LogInSignUp />} />
       </Routes>
     </div>
   );
 };
 
 export default App;
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+// import React, { useState } from "react";
+// import Navbar from "./Components/Navbar/Navbar";
+// import { Routes, Route } from "react-router-dom";
+// import Home from "./Pages/Home/Home";
+// import Video from "./Pages/Video/Video";
+// import { ToastContainer } from "react-toastify";
+// import LogInSignUp from "./Pages/LogInSignUp";
+
+// const App = () => {
+//   const [sidebar, setSidebar] = useState(true);
+  
+//   return (
+//     <div>
+//       <ToastContainer>
+
+//       </ToastContainer>
+//       <Navbar setSidebar={setSidebar} />
+//       <Routes>
+//         <Route path="/" element={<Home  sidebar={sidebar} />} />
+//         <Route path="/video/:categoryId/:videoId" element={<Video />} />
+//         <Route path="/login" element={< LogInSignUp/>} />
+//       </Routes>
+//     </div>
+//   );
+// };
+
+// export default App;

@@ -31,7 +31,12 @@ const Navbar = ({ setSidebar }) => {
                 <img src={upload_icon} alt="" />
                 <img src={more_icon} alt="" />
                 <img src={notification_icon} alt="" />
-                <img src={jack_img} alt="" className="user-icon" />
+                {/* <img src={jack_img} alt="" className="user-icon" /> */}
+                <div className='login'>
+                    {localStorage.getItem('auth-token')
+                    ?<button onClick={()=>{localStorage.removeItem('auth-token');window.location.replace("/");}}>Logout</button>
+                    :<Link to='/login' style={{ textDecoration: 'none' }}><button>Login</button></Link>}
+                </div>
             </div>
         </nav>
     )
