@@ -13,4 +13,4 @@ Technologies Used:-
 
 ReactJS: Frontend development framework.
 YouTube API: Accesses YouTube's vast collection of videos.
-Netlify: Platform for continuous deployment and hosting.
+Vercel: Platform for continuous deployment and hosting.
